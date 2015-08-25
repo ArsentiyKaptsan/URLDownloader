@@ -8,5 +8,10 @@
     <artifactId>URLDownloaer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
+    <scm>
+        <connection>git@github.com:ArsentiyKaptsan/URLDownloader.git</connection>
+        <developerConnection>git@github.com:ArsentiyKaptsan/URLDownloader.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com</url>
+    </scm>
 </project>
