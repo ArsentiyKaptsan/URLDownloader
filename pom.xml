@@ -8,10 +8,25 @@
     <artifactId>URLDownloaer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+    </dependencies>
+
     <scm>
-        <connection>git@github.com:ArsentiyKaptsan/URLDownloader.git</connection>
-        <developerConnection>git@github.com:ArsentiyKaptsan/URLDownloader.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com:ArsentiyKaptsan/URLDownloader.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:ArsentiyKaptsan/URLDownloader.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com</url>
+        <url>ssh://git@github.com:ArsentiyKaptsan/URLDownloader.git</url>
     </scm>
 </project>
