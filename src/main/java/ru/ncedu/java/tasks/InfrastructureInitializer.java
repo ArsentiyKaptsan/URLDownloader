@@ -31,7 +31,6 @@ public class InfrastructureInitializer {
     public InfrastructureInitializer(URL url, String filePath) {
         this.url = url;
         this.filePath = filePath;
-        init();
     }
 
     public Path getFinalDir() {
@@ -55,10 +54,10 @@ public class InfrastructureInitializer {
         if (filePath == null) {
            filePath = fileName;
         }
-        finalDir = new File(filePath).toPath().resolve(currentDir);
+        finalDir = currentDir.resolve(filePath).normalize();
 
-        if (Files.exists(finalDir) && fileName.equals(filePath)) {
-            finalDir = new File(fileName).toPath().resolve(finalDir);
+        if (fileName != filePath && Files.isDirectory(finalDir)) {
+            finalDir = finalDir.resolve(fileName).normalize();
         }
 
         if (Files.exists(finalDir)) {

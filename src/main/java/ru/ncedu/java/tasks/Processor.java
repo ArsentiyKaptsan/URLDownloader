@@ -24,8 +24,8 @@ public class Processor {
     }
 
     /**
-     * Does the main logic. If some of internal services throw an exception, it handles it, print a message to user
-     * and exit app.
+     * Does the main logic. If some of the internal services throw an exception, it handles it, prints a message to user
+     * and exits the app.
      */
     public void run() {
         log.info("Start application with parameters {[]}", args);

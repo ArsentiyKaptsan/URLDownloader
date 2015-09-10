@@ -60,7 +60,8 @@ public class ArgumentsParser {
     }
 
     private void writeHelpMessage() {
-        ShellHelper.getInstance().getOutStream().println("URLDownloader - download data from internet");
-        ShellHelper.getInstance().getOutStream().println("Parameter: [url]*essential* [filename] [-o]/[--Open] [-help]");
+        ShellHelper.getInstance().getOutStream().println("URLDownloader manual:");
+        ShellHelper.getInstance().getOutStream().println("URLDownloader downloads data from the internet");
+        ShellHelper.getInstance().getOutStream().println("Parameters: [url]*essential* [filename] [-o]/[--Open] [-help]");
     }
 }
