@@ -11,7 +11,7 @@ import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ArgumentParserUT {
+public class ArgumentParserTest {
     private final static ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final static ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 

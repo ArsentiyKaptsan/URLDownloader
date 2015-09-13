@@ -23,6 +23,25 @@
             <artifactId>logback-classic</artifactId>
             <version>1.0.13</version>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        -->
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -45,13 +64,12 @@
         </dependency>
 
     </dependencies>
-
     <profiles>
         <profile>
             <id>local-testing</id>
             <properties>
-                <test.category>ru.ncedu.java.tasks.URLDownloader.categories.LocalTest.class</test.category>
-                <test.folder>/home/arsentii/IdeaProjects/URLDownloader/src/test/resources/testFolder</test.folder>
+                <test.category>ru.ncedu.java.tasks.URLDownloader.categories.LocalTest</test.category>
+                <test.folder>/src/test/resources/testFolder</test.folder>
             </properties>
             <build>
                 <plugins>
@@ -59,11 +77,20 @@
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <configuration>
                             <groups>${test.category}</groups>
-                            <systemPropertiesVariables>
+                            <systemPropertyVariables>
                                 <test.folder>${test.folder}</test.folder>
                                 <test.environment>localhost</test.environment>
-                            </systemPropertiesVariables>
+                            </systemPropertyVariables>
                         </configuration>
+                        <executions>
+                            <execution>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
@@ -72,8 +99,8 @@
         <profile>
             <id>outer-testing</id>
             <properties>
-                <test.category>ru.ncedu.java.tasks.URLDownloader.categories.OuterTest.class</test.category>
-                <test.folder>/home/arsentii/IdeaProjects/URLDownloader/src/test/resources/testFolder</test.folder>
+                <test.category>ru.ncedu.java.tasks.URLDownloader.categories.OuterTest</test.category>
+                <test.folder>${project.build.directory}src/test/resources/testFolder</test.folder>
             </properties>
             <build>
                 <plugins>
@@ -81,21 +108,18 @@
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <configuration>
                             <groups>${test.category}</groups>
-                            <systemProperties>${test.folder}</systemProperties>
+                            <systemPropertyVariables>
+                                <test.folder>${test.folder}</test.folder>
+                                <test.environment>internet</test.environment>
+                            </systemPropertyVariables>
                         </configuration>
                         <executions>
                             <execution>
+                                <phase>integration-test</phase>
                                 <goals>
                                     <goal>integration-test</goal>
                                     <goal>verify</goal>
                                 </goals>
-                                <configuration>
-                                    <groups>${test.category}</groups>
-                                    <systemPropertiesVariables>
-                                        <test.folder>${test.folder}</test.folder>
-                                        <test.environment>internet</test.environment>
-                                    </systemPropertiesVariables>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
@@ -120,14 +144,24 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
                     <archive>
                         <index>true</index>
                         <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>ru.ncedu.java.tasks.URLDownloader.UnitTests.ArgumentParserUT</mainClass>
+                            <addClasspath>false</addClasspath>
+                            <mainClass>ru.ncedu.java.tasks.RunnerClass</mainClass>
                         </manifest>
                         <manifestEntries>
                             <mode>development</mode>

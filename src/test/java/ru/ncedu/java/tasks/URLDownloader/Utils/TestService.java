@@ -1,5 +1,8 @@
 package ru.ncedu.java.tasks.URLDownloader.Utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.nio.file.Path;
 
@@ -8,6 +11,8 @@ import java.nio.file.Path;
  */
 public class TestService {
     private static TestService ourInstance = new TestService();
+
+    private static final Logger LOG = LoggerFactory.getLogger(TestService.class);
 
     private Path testFolder;
 
@@ -19,6 +24,7 @@ public class TestService {
 
     private TestService() {
         try {
+            LOG.info("Starting initialization for integration testing.");
             testFolder = new File(System.getenv("test.folder")).toPath();
             isRunningLocally = "localhost".equals(System.getenv("test.environment"));
         } catch (Error e) {

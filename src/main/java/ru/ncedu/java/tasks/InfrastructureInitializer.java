@@ -68,7 +68,7 @@ public class InfrastructureInitializer {
             if (askIfFileShouldBeRewritten()) {
                 try {
                     new PrintWriter(finalDir.toFile()).print("");
-                    log.info("Rewrite file.");
+                    log.info("Rewriting file.");
                     return;
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException("Can not rewrite the file!");
@@ -77,7 +77,7 @@ public class InfrastructureInitializer {
                 String newName = askIfFileShouldBeRenamed();
                 if (newName != null) {
                     finalDir = new File(finalDir.getParent().toString(), newName).toPath();
-                    log.info("Create file with a new name [{}].", newName);
+                    log.info("Creating file with a new name [{}].", newName);
                 }
             }
         }
