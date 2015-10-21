@@ -4,6 +4,7 @@ package ru.ncedu.java.tasks.URLDownloader.IntegrationTests;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.TestName;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.ncedu.java.tasks.Processor;
 import ru.ncedu.java.tasks.URLDownloader.Utils.TestService;
+import ru.ncedu.java.tasks.URLDownloader.categories.OuterTest;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -20,6 +22,7 @@ import java.nio.file.Path;
 
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
+@Category( OuterTest.class )
 public class WholeDownloaderIT {
     @Rule
     public TestName testName = new TestName();
@@ -37,7 +40,7 @@ public class WholeDownloaderIT {
 
     private static final Logger LOG = LoggerFactory.getLogger(WholeDownloaderIT.class);
 
-    private static Path testFolder = TestService.getInstance().getTestFolder();
+    private Path testFolder = TestService.getInstance().getTestFolder();
 
     private Path pathToFile1 = testFolder.resolve("index.html").normalize();
     private URL url1;

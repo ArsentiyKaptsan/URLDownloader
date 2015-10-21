@@ -11,7 +11,7 @@ import java.net.URL;
 import java.nio.file.Path;
 
 /**
- * Implement the main goal of URLDowloader artifact.
+ * Implement the main goal of URLDownloader artifact.
  */
 public class Processor {
     private static final Logger log = LoggerFactory.getLogger(Processor.class);
@@ -68,7 +68,7 @@ public class Processor {
             }
         } catch (RuntimeException exp) {
             helper.getErrStream().println("Error occurred: " + exp.getMessage());
-            log.info("Exception is catched [{}], terminating.", exp.getMessage());
+            log.info("Exception is cached [{}], terminating.", exp.getMessage());
             helper.terminateWithError();
         }
     }

@@ -18,30 +18,12 @@
     </scm>
 
     <dependencies>
+
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.0.13</version>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>1.0.13</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.12</version>
-        </dependency>
-        -->
 
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -69,7 +51,7 @@
             <id>local-testing</id>
             <properties>
                 <test.category>ru.ncedu.java.tasks.URLDownloader.categories.LocalTest</test.category>
-                <test.folder>/src/test/resources/testFolder</test.folder>
+                <test.folder>src/test/resources/testFolder</test.folder>
             </properties>
             <build>
                 <plugins>
@@ -100,7 +82,7 @@
             <id>outer-testing</id>
             <properties>
                 <test.category>ru.ncedu.java.tasks.URLDownloader.categories.OuterTest</test.category>
-                <test.folder>${project.build.directory}src/test/resources/testFolder</test.folder>
+                <test.folder>src/test/resources/testFolder</test.folder>
             </properties>
             <build>
                 <plugins>
